@@ -1,97 +1,168 @@
 <!DOCTYPE html>
 
-<!-- WCAG 3.1.1 -->
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- WCAG 2.4.2 -->
-    <title>Untitled</title>
-    <style>
-      .custom-button {
-        background: #007bff;
-        color: white;
-        padding: 10px 20px;
-        cursor: pointer;
-        user-select: none;
-        display: inline-block;
-      }
-      a:focus {
-        outline: none;
-      }
-    </style>
-    <script>
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "s") {
-          alert('Shortcut "s" triggered!');
-        }
-      });
-    </script>
-  </head>
-  <body>
-    <!-- WCAG 1.3.1
-    H1 tag is missing in the HTML document. -->
+<!-- WCAG 3.1.1 - Use the HTML lang attribute to identify the page’s language. -->
+<html>
+<!-- Solution -->
+<!-- <html lang ="en"> -->
 
-    <div>
-      <!-- WCAG 1.1.1 -->
-      <img src="photo.png" style="width: 500px; height: auto" />
 
-      <!-- WCAG 1.2.1, 1.2.2, 1.2.3, 1.2.5 -->
-      <h2>Video-only Example: Assembling a Chair</h2>
-      <video controls style="width: 500px; height: auto">
-        <source src="video.mp4" type="video/mp4" Your browser does not support
-        the video tag.
-      </video>
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- WCAG 2.4.2 - Provide clear and descriptive page titles.-->
+  <title>Untitled</title>
+  <!-- Solution -->
+  <!-- <title>Unccessible Web Page</title> -->
+
+
+  <style>
+    .custom-button {
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+    }
+
+     .custom-button1 {
+      background: #022f5f;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+    }
+
+    a:focus {
+      outline: none;
+    }
+  </style>
+  </script>
+</head>
+
+<body>
+  <!-- WCAG 1.3.1 - Programmatically convey relationships (headings, lists, etc.) and structure. -->
+  <!-- Solution
+    <h1>Demo website for showcasing WCAG compliance issues</h1> -->
+
+
+
+  <div>
+    <!-- WCAG 1.1.1 - Provide text alternatives for non-text content.-->
+    <img src="photo.png" style="width: 500px; height: auto" />
+    <!-- Solution -->
+    <!-- <img src="photo.png" alt="An image of a red sport car parked in a garage"  style="width: 500px; height: auto" /> -->
+  </div>
+
+
+
+
+  <div>
+    <!-- WCAG 1.2.1 - Provide alternatives for prerecorded audio-only and video-only content.,
+      1.2.2 - Provide captions for all prerecorded audio content in synchronized media.,
+      1.2.3 - Provide audio description or a media alternative for video content.,
+      1.2.5 - Provide audio description for prerecorded video content in synchronized media.  -->
+    <h2>Some heading of the video.</h2>
+    <video controls style="width: 500px; height: auto">
+      <source src="video.mp4" type="video/mp4" >Your browser does not support the video tag. </video>
+  </div>
+  <!-- Solution for WCAG 1.2.1
+  <p>Here goes the video description</p>
+  
+  <video controls style="width: 500px; height: auto">
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video> -->
+
+
+  <!-- WCAG 1.3.5 - Use autofill and semantic markup for input fields (e.g., name, email).-->
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" /><br /><br />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" /><br /><br />
+
+    <label for="tel">Phone:</label>
+    <input type="tel" id="tel" name="tel" /><br /><br />
+
+    <button type="submit">Submit</button>
+  </form>
+  <!-- Solution
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" autocomplete="name" /><br /><br />
+
+    <label for="email123">Email:</label>
+    <input type="email" id="email123" name="email" autocomplete="email" /><br /><br />
+
+    <label for="tel">Phone:</label>
+    <input type="tel" id="tel" name="tel" autocomplete="tel" /><br /><br />
+
+    <button type="submit">Submit</button>
+  </form> -->
+
+
+
+
+  <!-- WCAG 1.4.3 - Provide sufficient color contrast between foreground and background (4.5:1). -->
+  <!-- WCAG 2.1.1 - All functionality should be operable through a keyboard interface. -->
+  <div>
+    <div class="custom-button" onclick="alert('Button clicked!')">
+      Click Me
     </div>
+    <!-- Solution: for WCAG 2.1.1 -->
+    <!-- <div role="button" tabindex="0" class="custom-button1" onclick="alert('Button clicked!')">
+      Click Me
+    </div>
+  </div> -->
 
-    <!-- WCAG 1.3.5 -->
+
+
+
+  <!-- WCAG 2.4.4 - Link purpose can be determined from the link text alone or context. -->
+  <p>To learn about our team, <a href="team.html">click here</a>.</p>
+  <!-- Solution -->
+  <!-- <p><a href="team1.html">Learn more about our team</a>.</p> -->
+
+
+
+
+  <!-- WCAG 3.3.2 -Provide labels or instructions when user input is required. -->
+  <div>
     <form>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" /><br /><br />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" /><br /><br />
-
-      <label for="tel">Phone:</label>
-      <input type="tel" id="tel" name="tel" /><br /><br />
-
-      <button type="submit">Submit</button>
+      <input type="text" name="username" />
+      <button type="submit">Login</button>
     </form>
+  </div>
+  <!-- Solution -->
+  <!-- <form>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" />
+    <button type="submit">Login</button>
+  </form> -->
 
-    <!-- WCAG 1.4.3 -->
-    <!-- WCAG 2.1.1 -->
-    <div>
-      <div class="custom-button" onclick="alert('Button clicked!')">
-        Click Me
-      </div>
-    </div>
 
-    <!-- WCAG 2.4.4 -->
-    <p>To learn about our team, <a href="team.html">click here</a>.</p>
 
-    <div>
-      <!-- Visible text is "Download Report", but aria-label is "Export" -->
-      <a href="report.pdf" aria-label="Export">
-        <span class="icon-download"></span>
-        Download Report
-      </a>
-    </div>
 
-    <!-- WCAG 3.3.2 -->
-    <div>
-      <form>
-        <input type="text" name="username" />
-        <button type="submit">Login</button>
-      </form>
-    </div>
-    <!-- WCAG 2.4.6 -->
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="input1" />
+  <!-- WCAG 2.4.6 - Use clear headings and labels to describe topic or purpose.-->
+  <!-- WCAG 4.1.1 - Ensure no major parsing errors in the markup (e.g., duplicate IDs).-->
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="input1" />
 
-      <label for="email">Email again:</label>
-      <input type="email" id="input1" />
-    </div>
+    <label for="email">Email again:</label>
+    <input type="email" id="input1" />
+  </div>
+  <!-- Solution -->
+  <!-- <div>
+    <label for="email1">Email:</label>
+    <input type="email" id="email1" name="email" />
 
-    <div onclick="submitForm()">Submit</div>
-  </body>
+    <label for="email2">Confirm Email:</label>
+    <input type="email" id="email2" name="confirm_email" />
+  </div> -->
+
+</body>
 </html>
